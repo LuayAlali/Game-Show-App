@@ -16,3 +16,7 @@ resetButton.addEventListener('click', () => {
 	
 });
 
+function getRandomPhraseAsArray(phrase) {
+	//A function that captures a rondom phrase in the phraseArray.
+	
+}
