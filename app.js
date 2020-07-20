@@ -16,7 +16,12 @@ resetButton.addEventListener('click', () => {
 	
 });
 
-function getRandomPhraseAsArray(phrase) {
+function getRandomPhraseAsArray(phrases) {
 	//A function that captures a rondom phrase in the phraseArray.
-	
+	const getRandomNumber = Math.floor(Math.random(5 - phrase.length) + 1);
+	const randomArray = phrases[getRandomNumber];
+	return randomArray;
 }
+
+getRandomPhraseAsArray(phraseArray);
+
