@@ -10,6 +10,8 @@ const phraseArray = ['books',
 					 'computer',
 					 'bicycle'
 					];
+const splitCharacters = getRandomPhraseAsArray(phraseArray);
+
 
 resetButton.addEventListener('click', () => {
 	overlay.style.display = 'none';
@@ -20,8 +22,28 @@ function getRandomPhraseAsArray(phrases) {
 	//A function that captures a rondom phrase in the phraseArray.
 	const getRandomNumber = Math.floor(Math.random(5 - phrase.length) + 1);
 	const randomArray = phrases[getRandomNumber];
-	return randomArray;
+	const splitArray = randomArray.split("");
+	return splitArray;
 }
 
-getRandomPhraseAsArray(phraseArray);
+
+
+//function addPhraseToDisplay(character){
+//	for(let i = 0; i < character.length; i++){
+//		let li = document.createElement('li');
+//		li.textContent = `${character[i]}`;
+//		const ul = document.querySelector('#phrase');
+//		 ul.appendChild(li);
+//		if( character[i] != -1 ){
+//			 li.className('letter');
+//			} 
+//				
+//			
+//		
+//	}
+//	
+//}
+//addPhraseToDisplay(splitCharacters);
+
+
 
