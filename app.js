@@ -35,7 +35,7 @@ function addPhraseToDisplay(character){
 		const ul = document.querySelector('#phrase');
 		 ul.appendChild(li);
 		if( character[i] != -1 ){
-			 li.className('letter');
+			 li.className = 'letter';
 			} 
 				
 			
@@ -43,6 +43,20 @@ function addPhraseToDisplay(character){
 	}
 	
 }
+function checkLetter(clicked) {
+	let letters = document.querySelectorAll('.letter')
+	for(let i = 0; i <  letters.length; i++){
+		if(clicked === letters[i]){
+		letters[i].className = 'show';
+	} else 
+		return null;
+		
+		}
+}
+
+
+
+
 addPhraseToDisplay(splitCharacters);
 
 
