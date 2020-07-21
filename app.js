@@ -12,6 +12,7 @@ const phraseArray = ['books',
 					];
 const splitCharacters = getRandomPhraseAsArray(phraseArray);
 const buttons = document.getElementsByTagName('button');
+const life = document.querySelector('ol');
 
 resetButton.addEventListener('click', () => {
 	overlay.style.display = 'none';
@@ -20,7 +21,7 @@ resetButton.addEventListener('click', () => {
 
 function getRandomPhraseAsArray(phrases) {
 	//A function that captures a rondom phrase in the phraseArray.
-	const getRandomNumber = Math.floor(Math.random(5 - phrases.length) + 1);
+	const getRandomNumber = Math.floor(Math.random() * 5 );
 	const randomArray = phrases[getRandomNumber];
 	const splitArray = randomArray.split("");
 	return splitArray;
@@ -47,24 +48,33 @@ function checkLetter(clicked) {
 	let letters = document.querySelectorAll('.letter')
 	let match = null;
 	for(let i = 0; i <  letters.length; i++){
-		if(clicked === letters[i]){
+		if(clicked.textContent == letters[i].textContent){
 		letters[i].className = 'show';
-			match.textContent += letters[i].textContent;
-			return match;
+			match = clicked.textContent;
+			
 	} else 
 		return null;
 		
 		}
+	return match;
 }
 
 qwerty.addEventListener('click', (event) => {
 	if (event.target.tagName != 'BUTTON' || event.target.className === 'chosen') {
 		return null
 		}  else if (event.target.tagName == 'BUTTON') {
-	   event.target.className = 'chosen';
-		let letterFound = checkLetter(event);
-		return letterFound;
-	   }
+		const button = event.target;
+		button.className += 'chosen';
+		button.disabled = true;
+		let letterFound = checkLetter(button);
+			if(letterFound == null){
+			   life.removeChild(life.firstElementChild);
+			   missedGuesses += 1;
+			   
+			   } 
+			   }
+	
+	   
 });
 
 
