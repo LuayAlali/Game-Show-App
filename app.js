@@ -51,23 +51,23 @@ function checkLetter(clicked) {
 		if(clicked.textContent == letters[i].textContent){
 		letters[i].className = 'show';
 			match = clicked.textContent;
-			
+			return match;
 	} else 
 		return null;
 		
 		}
-	return match;
+
 }
 
 qwerty.addEventListener('click', (event) => {
-	if (event.target.tagName != 'BUTTON' || event.target.className === 'chosen') {
+	if (event.target.tagName != 'BUTTON' ) {
 		return null
-		}  else if (event.target.tagName == 'BUTTON') {
+		}  else if (event.target.tagName === 'BUTTON') {
 		const button = event.target;
 		button.className += 'chosen';
-		button.disabled = true;
+		
 		let letterFound = checkLetter(button);
-			if(letterFound == null){
+			if(letterFound === null){
 			   life.removeChild(life.firstElementChild);
 			   missedGuesses += 1;
 			   
