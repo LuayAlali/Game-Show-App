@@ -107,9 +107,18 @@ const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
 const resetButton = document.querySelector('.btn__reset');
 let missedGuesses = 0;
-const phrases = ['pie', 'granola', 'chips', 'coke', 'coffee'];
+const phrases = ['pie', 'granola', 'chips', 'coke', 'coffee'];//array of phrases
+
 
 resetButton.addEventListener('click', () => {
 	const start = document.querySelector('#overlay');
 	start.style.display = 'none';
 });
+
+function  getRandomPhraseAsArray (arr) {
+	//A function that captures a rondom phrase in the phraseArray.
+	const randomNumber =  Math.floor(Math.random() * arr.length);
+	const indexOf = arr.indexOf(randomNumber);
+	return indexOf;
+}
+getRandomPhraseAsArray(phrases);
