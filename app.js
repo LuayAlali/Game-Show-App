@@ -118,7 +118,42 @@ resetButton.addEventListener('click', () => {
 function  getRandomPhraseAsArray (arr) {
 	//A function that captures a rondom phrase in the phraseArray.
 	const randomNumber =  Math.floor(Math.random() * arr.length);
-	const indexOf = arr.indexOf(randomNumber);
-	return indexOf;
+	const arrayAtRandom= arr[randomNumber];
+	const arrayCharacters = arrayAtRandom.split("");
+	return arrayCharacters;
 }
+// const randomArray = phraseArray[getRandomNumber];
+// 	const splitArray = randomArray.split("");
+// 	return splitArray;
+
 getRandomPhraseAsArray(phrases);
+
+
+
+function checkLetter(button) {
+
+const li = document.getElementsByTagName('li');
+
+let match = null;
+for (let i = 0; i < li.length; i++){
+	if (button[i].textContent === li[].textContent{
+		li.className += 'show';
+		match = button.textContent;
+	}	
+}
+return match;
+}
+
+qwerty.addEventListener('click', (e) =>{
+	 if (e.target.tagName  != 'BUTTON'){
+		 return null;
+	 } else {
+		 e.target.className = 'chosen';
+		 const check = checkLetter(e);
+		 if(check === null){
+			 const tries = document.querySelector('#scoreboard').firstElementChild.firstElementChild;
+			 tries.style.display = 'none';
+			 missedGuesses += 1;
+		 }
+	 }
+});
