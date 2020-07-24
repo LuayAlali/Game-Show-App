@@ -19,23 +19,23 @@ resetButton.addEventListener('click', () => {
 	
 });
 
-function getRandomPhraseAsArray(phrases) {
+function getRandomPhraseAsArray(phraseArray) {
 	//A function that captures a rondom phrase in the phraseArray.
-	const getRandomNumber = Math.floor(Math.random() * 5 );
-	const randomArray = phrases[getRandomNumber];
+	const getRandomNumber = Math.floor(Math.random() * 5);
+	const randomArray = phraseArray[getRandomNumber];
 	const splitArray = randomArray.split("");
 	return splitArray;
 }
 
 
 
-function addPhraseToDisplay(character){
+function addPhraseToDisplay(splitCharacters){
 	const ul = document.querySelector('#phrase');
-	for(let i = 0; i < character.length; i++){
+	for(let i = 0; i < splitCharacters.length; i++){
 		let li = document.createElement('li');
-		li.textContent = `${character[i]}`;
+		li.textContent = `${splitCharacters[i]}`;
 		 ul.appendChild(li);
-		if( character[i] != -1 ){
+		if( splitCharacters[i] != -1 ){
 			 li.className = 'letter';
 			} 
 				
@@ -44,20 +44,43 @@ function addPhraseToDisplay(character){
 	}
 	
 }
-function checkLetter(clicked) {
+function checkLetter(button) {
 	let letters = document.querySelectorAll('.letter')
 	let match = null;
 	for(let i = 0; i <  letters.length; i++){
-		if(clicked.textContent == letters[i].textContent){
+		if(button.textContent === letters[i].textContent){
 		letters[i].className = 'show';
-			match = clicked.textContent;
-			return match;
+		match += 1;	
+		return match;
 	} else 
 		return null;
 		
 		}
 
 }
+
+
+
+
+
+function checkWin(){
+const twoClasses = document.querySelectorAll('.letter.show');
+const oneClass = document.querySelectorAll('.letter');
+	if(twoClasses === oneClass){
+	overlay.className = 'win';
+	document.querySelector('.win').innerHTML = `<h1>Congratulations</h1><br>
+	<h2>You Won!!</h2>`;
+	overlay.style.display = 'flex';
+} else if(missedGuesses > 4){
+	overlay.className = 'lose';
+	document.querySelector('.lose').innerHTML = `<h1>Game Over</h1><br>`
+}
+}
+
+
+
+
+addPhraseToDisplay(splitCharacters);
 
 qwerty.addEventListener('click', (event) => {
 	if (event.target.tagName != 'BUTTON' ) {
@@ -70,15 +93,11 @@ qwerty.addEventListener('click', (event) => {
 			if(letterFound === null){
 			   life.removeChild(life.firstElementChild);
 			   missedGuesses += 1;
-			   
+			  return missedGuesses;
 			   } 
+			   checkWin();
 			   }
-	
-	   
+			 
+			   
 });
-
-
-addPhraseToDisplay(splitCharacters);
-
-
 
