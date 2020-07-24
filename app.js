@@ -126,20 +126,35 @@ function  getRandomPhraseAsArray (arr) {
 // 	const splitArray = randomArray.split("");
 // 	return splitArray;
 
-getRandomPhraseAsArray(phrases);
+const phraseArray = getRandomPhraseAsArray(phrases);
 
+
+function addPhraseToDisplay(arr) {
+	const ul = document.getElementById('phrase');
+	for(let i = 0; i < arr.length; i++){
+   let li  = document.createElement('li');
+    li.textContent = `${arr[i]}`;
+    ul.appendChild(li);
+   if(li[i] != -1){
+     li.className = 'letter';
+   }
+	}
+}
+
+addPhraseToDisplay(phraseArray);
 
 
 function checkLetter(button) {
 
-const li = document.getElementsByTagName('li');
-
+const list = document.querySelectorAll('letter');
 let match = null;
-for (let i = 0; i < li.length; i++){
-	if (button[i].textContent === li[].textContent{
-		li.className += 'show';
+for (let i = 0; i < list.length; i++){
+	if (button.textContent === list[i].textContent){
+		list[i].className = "show";
 		match = button.textContent;
-	}	
+	}	else {
+		return null;
+	}
 }
 return match;
 }
