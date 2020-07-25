@@ -25,12 +25,20 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 function addPhraseToDisplay(arr) {
 	const ul = document.getElementById('phrase');
 	for(let i = 0; i < arr.length; i++){
-   let li  = document.createElement('li');
+   if(arr[i] === " "){
+	let li  = document.createElement('li');
     li.textContent = `${arr[i]}`;
-    ul.appendChild(li);
-   if(li[i] !== " "){
-     li.className += 'letter';
+	ul.appendChild(li);
+	li.className = 'space';
+   }else if (arr[i] != -1){
+	let li  = document.createElement('li');
+    li.textContent = `${arr[i]}`;
+	ul.appendChild(li);
+	li.className += 'letter';
    }
+		
+   
+   
 	}
 }
 
