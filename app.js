@@ -2,7 +2,7 @@ const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
 const resetButton = document.querySelector('.btn__reset');
 let missedGuesses = 0;
-const phrases = ['apple', 'corn', 'cheese', 'coke', 'biscuit'];//array of phrases
+const phrases = ['apple pie', 'corn flakes', 'cheese cake', 'coca cola', ' tea biscuit'];//array of phrases
 
 
 resetButton.addEventListener('click', () => {
@@ -28,7 +28,7 @@ function addPhraseToDisplay(arr) {
    let li  = document.createElement('li');
     li.textContent = `${arr[i]}`;
     ul.appendChild(li);
-   if(li[i] != -1){
+   if(li[i] !== " "){
      li.className += 'letter';
    }
 	}
