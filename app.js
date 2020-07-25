@@ -2,7 +2,7 @@ const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
 const resetButton = document.querySelector('.btn__reset');
 let missedGuesses = 0;
-const phrases = ['pie', 'granola', 'chips', 'coke', 'coffee'];//array of phrases
+const phrases = ['pie', 'corn', 'chips', 'coke', 'biscuit'];//array of phrases
 
 
 resetButton.addEventListener('click', () => {
