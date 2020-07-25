@@ -42,12 +42,13 @@ const list = document.querySelectorAll('.letter');
 let match = null;
 for (let i = 0; i < list.length; i++){
 	if (button.textContent === list[i].textContent){
-		list[i].className += 'show';
+		list[i].className += ' show';
 		match = button.textContent;
-		return match;
+		
 	}	else {
 		return null;
 	}
+	return match;
 }
 
 }
@@ -60,6 +61,7 @@ qwerty.addEventListener('click', (event) =>{
 	 } else if (event.target.tagName === 'BUTTON') {
 		const button = event.target;
 		button.className += 'chosen';
+		 button.disabled = true;
 		 let check = checkLetter(button);
 		 if(check === null){
 			 const tries = document.querySelector('#scoreboard').firstElementChild;
