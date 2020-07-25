@@ -92,11 +92,22 @@ button {
   width: 15px;
 }
 
-.show {
+  .show {
   color: #000;
   background-color: #76CE82;
 }
-
+.lettershow {
+ width: 65px;
+ height: 65px;
+ color: white;
+ background:#ff7f4d;
+  padding: 20px 1px 0 1px;
+  font-size: 2em;
+  transition-delay: 400ms;
+  text-transform: uppercase;
+  transition-duration: .3s;
+  
+}
 /* Keyboard */
 
 .keyrow {
