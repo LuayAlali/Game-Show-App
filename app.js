@@ -63,7 +63,7 @@ qwerty.addEventListener('click', (event) =>{
 		 let check = checkLetter(button);
 		 if(check === null){
 			 const tries = document.querySelector('#scoreboard').firstElementChild;
-			 tries.removeChild(tries.firstElementChild)
+			 tries.removeChild(tries.firstElementChild);
 			 missedGuesses += 1;
 		 }
 		 
@@ -79,13 +79,15 @@ function checkWin() {
  const win = document.querySelector('#overlay');
  win.className = 'win';
  win.style.display = 'flex';
+ win.innerHTML = `<h1>WINNER</h1><br><h4>reload page to play again</h4>`;
  } else if (missedGuesses >= 5){
 	 const lose = document.querySelector('#overlay');
 	 lose.className = 'lose';
 	 lose.style.display = 'flex';
-	 lose.innerHTML = `<h1>you lose</h1>`;
+	 lose.innerHTML = `<h1>you lose</h1><br><h4>reload page to play again</h4>`;
  } else {
 	 null;
  }
 
 }
+
