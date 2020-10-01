@@ -1,17 +1,21 @@
 const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
-const resetButton = document.querySelector('.btn__reset');
+const startButton = document.querySelector('.btn__reset');
 let missedGuesses = 0;
 const phrases = ['apple pie', 'corn flakes', 'cheese cake', 'coca cola', ' tea biscuit'];//array of phrases
 const restartButton = document.createElement('button');
     restartButton.textContent = 'Play Again';
     restartButton.id = "reset";
 
-resetButton.addEventListener('click', () => {
+
+	// Start Game Button
+startButton.addEventListener('click', () => {
 	const start = document.querySelector('#overlay');
 	start.style.display = 'none';
 });
 
+
+// Get Random Phrase
 function  getRandomPhraseAsArray (arr) {
 	//A function that captures a rondom phrase in the phraseArray.
 	const randomNumber =  Math.floor(Math.random() * arr.length);
@@ -23,6 +27,8 @@ function  getRandomPhraseAsArray (arr) {
 
 const phraseArray = getRandomPhraseAsArray(phrases);
 
+
+// Adding the phrase to the display
 
 function addPhraseToDisplay(arr) {
 	const ul = document.getElementById('phrase');
@@ -82,6 +88,8 @@ qwerty.addEventListener('click', (event) =>{
 });
 
 
+// checking if user won
+
 function checkWin() {
  const letters = document.querySelectorAll('.letter');
  const show = document.querySelectorAll('.show');
@@ -116,7 +124,46 @@ function checkWin() {
 restartButton.addEventListener('click', (e) => {
     
 	e.target;
-  if (e.target = resetButton) {
-	  location.reload();
+  if (e.target = restartButton) {
+	const lose = document.querySelector('#overlay');
+	const win = document.querySelector('#overlay');
+	if(win.style.display == 'flex'){
+		win.style.display = 'none';
+		// addPhraseToDisplay(phraseArray);
+	} else if(	lose.style.display = 'flex'){
+		lose.style.display = 'none';
+	
+		// btn.disabled = false;
+		// btn.classList.remove('chosen');
+	
+	
+	}
+	
+	const btn = document.querySelectorAll('.chosen');
+	for(let i = 0; i < btn.length; i++){
+		btn[i].disabled = false;
+		btn[i].classList.remove('chosen');
+	}
+	const tries = document.querySelector('#scoreboard');
+tries.innerHTML = `
+<ol>
+          <li class="tries"><img src="images/liveHeart.png" height="35px" width="30px"></li>
+          <li class="tries"><img src="images/liveHeart.png" height="35px" width="30px"></li>
+          <li class="tries"><img src="images/liveHeart.png" height="35px" width="30px"></li>
+          <li class="tries"><img src="images/liveHeart.png" height="35px" width="30px"></li>
+          <li class="tries"><img src="images/liveHeart.png" height="35px" width="30px"></li>
+			
+        </ol>
+`;
+	
+	phrase.innerHTML = "";
+	missedGuesses = 0;
+	addPhraseToDisplay(phraseArray);
+
    }
 });
+
+// const tries = document.querySelector('#scoreboard').firstElementChild;
+// tries.removeChild(tries.firstElementChild);
+// const ul = document.getElementById('phrase');
+// location.reload();
