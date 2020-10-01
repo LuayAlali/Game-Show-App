@@ -3,7 +3,9 @@ const phrase = document.querySelector('#phrase');
 const resetButton = document.querySelector('.btn__reset');
 let missedGuesses = 0;
 const phrases = ['apple pie', 'corn flakes', 'cheese cake', 'coca cola', ' tea biscuit'];//array of phrases
-
+const restartButton = document.createElement('button');
+    restartButton.textContent = 'Play Again';
+    restartButton.id = "reset";
 
 resetButton.addEventListener('click', () => {
 	const start = document.querySelector('#overlay');
@@ -85,17 +87,36 @@ function checkWin() {
  const show = document.querySelectorAll('.show');
  if(show.length === letters.length){
  const win = document.querySelector('#overlay');
- win.className = 'win';
- win.style.display = 'flex';
- win.innerHTML = `<h1>WINNER</h1><br><h4>reload page to play again</h4>`;
+ 
+ setTimeout(()=>{
+	win.className = 'win';
+	win.style.display = 'flex';
+	win.innerHTML = `<h1>WINNER</h1>`;
+	win.appendChild(restartButton);
+ },1200);
+
  } else if (missedGuesses >= 5){
 	 const lose = document.querySelector('#overlay');
-	 lose.className = 'lose';
-	 lose.style.display = 'flex';
-	 lose.innerHTML = `<h1>you lose</h1><br><h4>reload page to play again</h4>`;
+	 setTimeout(()=>{
+		lose.className = 'lose';
+		lose.style.display = 'flex';
+		lose.innerHTML = `<h1>you lose</h1>`;
+		lose.appendChild(restartButton);
+	 },500);
+
  } else {
 	 null;
  }
 
 }
 
+// Listening to reset button
+
+
+restartButton.addEventListener('click', (e) => {
+    
+	e.target;
+  if (e.target = resetButton) {
+	  location.reload();
+   }
+});
