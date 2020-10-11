@@ -158,7 +158,8 @@ tries.innerHTML = `
 	
 	phrase.innerHTML = "";
 	missedGuesses = 0;
-	addPhraseToDisplay(phraseArray);
+	const phraseArray2 = getRandomPhraseAsArray(phrases);
+	addPhraseToDisplay(phraseArray2);
 
    }
 });

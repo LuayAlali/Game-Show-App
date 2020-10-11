@@ -129,6 +129,9 @@ button {
   font-size: var(--font-size-medium);
 }
 
+button{
+  cursor: pointer;
+}
 /* Overlay */
 
 #overlay {
