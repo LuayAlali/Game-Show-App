@@ -186,3 +186,15 @@ button{
   font-size: 20px;
   outline: none;
 }
+@media(max-width:575px){
+  h2{
+    font-size: 45px
+  }
+  .letter{
+    height:35px;
+    width: 35px;
+  }
+  button{
+    padding: .3rem .4rem;
+  }
+ }
