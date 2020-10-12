@@ -26,7 +26,7 @@ body {
   justify-content: space-evenly;
   flex-direction: column;
   display: flex;
-  height: 100vh;
+  height: 90vh;
 }
 
 li, ol, ul {
@@ -186,6 +186,7 @@ button{
   font-size: 20px;
   outline: none;
 }
+
 @media(max-width:575px){
   h2{
     font-size: 45px
